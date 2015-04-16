@@ -11,6 +11,9 @@
 	<!-- Custom Style Sheet -->
 	<link rel="stylesheet" href="main.css">
 
+	<!-- Google fonts -->
+	<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700' rel='stylesheet' type='text/css'>
+
 	<!-- D3.js -->
 	<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
@@ -19,57 +22,62 @@
 
 </head>
 <body>
-<h1>testing...</h1>
-<script>
-	var width = 500;
-	var height = 500;
+<h1>Project title</h1>
+<main>
 
-	//comment goes here
-	var svg = d3.select('body')
-                .append('svg')
-                .attr({
-                    width: width,
-                    height: height
-                });
+	<script>
+		var width 	= 600;
+		var height 	= 600;
+		// var padding = 20;
 
-    //svg test
-    d3.csv('dataset.csv', function(data) {
-    	for (var i = 0; i < data.length; i++) {
-    		
-    	};
-    });
+		//comment goes here
+		var svgMap = d3.select('main')
+	                .append('svg')
+	                .attr({
+	                    width: width,
+	                    height: height
+	                });
 
-	// geocode test
-    var geocoder = new google.maps.Geocoder();
+	    //svg test
+	    d3.csv('dataset.csv', function(data) {
+	    	for (var i = 0; i < data.length; i++) {
+	    		
+	    	};
+	    });
 
-	var CoordConversion = function (address) {
-		geocoder.geocode( { 'address': address}, function(results, status) {
-			if (status == google.maps.GeocoderStatus.OK) {
-    			var latitude = results[0].geometry.location.lat();
-				var longitude = results[0].geometry.location.lng();
-    			console.log(latitude + ", " + longitude);
-    		} 
-		}) 
-	};
-	
-	CoordConversion("new york");
+		// geocode test
+	    var geocoder = new google.maps.Geocoder();
 
-</script>
+		var CoordConversion = function (address) {
+			geocoder.geocode( { 'address': address}, function(results, status) {
+				if (status == google.maps.GeocoderStatus.OK) {
+	    			var latitude = results[0].geometry.location.lat();
+					var longitude = results[0].geometry.location.lng();
+	    			console.log([latitude,longitude]);
+	    		} 
+			}) 
+		};
+		
+		CoordConversion("new york");
+		
+		// Circle
+		var svgCircle = d3.select('main')
+	                		.append('svg')
+	                		.attr({
+			                    width: width,
+			                    height: height
+	                		});
+	    
 
 
 
-
-
-
-
-
-
-
+	</script>
 
 	<!-- JQuery -->
 	<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
 
 	<!-- MAIN JS-->
 	<script src="scripts.js"></script>
+	</main>
 </body>
 </html>

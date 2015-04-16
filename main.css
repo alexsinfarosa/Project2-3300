@@ -1,9 +1,26 @@
 body {
-	max-width: 80%
+	font-family: 'Roboto Condensed', sans-serif;
+	padding: 1rem;
+	width: 100%;
 	margin: 0 auto;
+	background: #22313F;
+	color: #fff;
+}
+h1 {
+	font-size: 2rem;
 	text-align: center;
+}
+main {
+	
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: center;
 }
 
 svg {
-	border: 1px solid #555;
+	border: 1px solid #C8F7C5;
 }
+
+
