@@ -20,7 +20,14 @@ main {
 }
 
 svg {
-	border: 1px solid #C8F7C5;
+
+}
+
+g text {
+	display: inline-block;
+	fill: #fff;
+	font-size: 11px;
+
 }
 
 
