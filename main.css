@@ -10,23 +10,47 @@ h1 {
 	font-size: 2rem;
 	text-align: center;
 }
-main {
-	
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	justify-content: space-around;
-	align-items: center;
+
+input[type=button] {
+	width: 150px;
+	height: 30px;
+	background: transparent;
+	font-size: 1rem;
+	color: #F4D03F;
+	outline: none;
+	box-shadow: none;
+	border: 1px solid #CCC; 
+	border-radius: 7px;
+
+}
+input[type=button]:active{
+	background: #336E7B;
 }
 
-svg {
-
+.node circle {
+  cursor: pointer;
+  fill: #fff;
+  stroke: steelblue;
+  stroke-width: 2.5px;
 }
+
+.node text {
+  font-size: 11px;
+  color: white;
+}
+
+path.link {
+  fill: none;
+  stroke: #F4D03F;
+  stroke-width: 1px;
+}
+
 
 g text {
 	display: inline-block;
 	fill: #fff;
 	font-size: 11px;
+	letter-spacing: 1px;
 
 }
 
