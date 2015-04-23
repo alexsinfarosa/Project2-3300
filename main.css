@@ -6,6 +6,9 @@ body {
 	background: #22313F;
 	color: #fff;
 }
+svg {
+	/*border: 1px solid white;*/
+}
 h1 {
 	font-size: 2rem;
 	text-align: center;
@@ -51,7 +54,6 @@ g text {
 	fill: #fff;
 	font-size: 11px;
 	letter-spacing: 1px;
-
 }
 
 

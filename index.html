@@ -19,15 +19,10 @@
 
 </head>
 <body>
-<input type="button" value="England" onclick="selectCountry('England')">
-<input type="button" value="France" onclick="selectCountry('France')">
-<input type="button" value="Italy" onclick="selectCountry('Italy')">
+<input type="button" value="England" onclick="selectCountry()">
+<input type="button" value="France" onclick="selectCountry()">
+<input type="button" value="Italy" onclick="selectCountry()">
 	<script>
-	var width 	= 650;
-	var height 	= 650;
-	var padding = 20;
-
-
     //creating proper json formats
     //rootName will be the name of the country
     function buildJSONHierarchy(csv, rootName){
@@ -58,8 +53,12 @@
 
             var team2 = {"name": team2Name, "HT": HT, "FT": FT, "Date": date}
             team1["children"].push(team2);
+        console.log(team1);
+        console.log(team2);
         }
         return root;
+        console.log(root);
+
     }
 
     var m = [20, 120, 20, 120],
@@ -80,8 +79,10 @@
         .append("svg:g")
         .attr("transform", "translate(" + m[3] + "," + m[0] + ")");
 
-    function selectCountry(countryName) {
-            var country = countryName;
+    function selectCountry() {
+        $("input:button").click(function() {
+            var country = $(this).val();
+            console.log(country);
 
             d3.csv(country + ".csv", function(data) {
                 newJSON = buildJSONHierarchy(data, country);
@@ -104,8 +105,7 @@
                 toggle(root.children[9].children[0]);
 
                 update(root);
-            })
-            
+            });
 
             function update(source) {
                 var duration = d3.event && d3.event.altKey ? 5000 : 500;
@@ -206,10 +206,11 @@
                     d.children = d._children;
                     d._children = null;
                 }
-            };
+            }   
+        });
     }
 
-	</script>
+</script>
 
 	<!-- JQuery -->
 	<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
