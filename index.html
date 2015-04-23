@@ -19,9 +19,9 @@
 
 </head>
 <body>
-<input type="button" value="England" onclick="selectCountry()">
-<input type="button" value="France" onclick="selectCountry()">
-<input type="button" value="Italy" onclick="selectCountry()">
+<input type="button" value="England" onclick="selectCountry('England')">
+<input type="button" value="France" onclick="selectCountry('France')">
+<input type="button" value="Italy" onclick="selectCountry('Italy')">
 	<script>
 	var width 	= 650;
 	var height 	= 650;
@@ -80,10 +80,8 @@
         .append("svg:g")
         .attr("transform", "translate(" + m[3] + "," + m[0] + ")");
 
-    function selectCountry() {
-        $("input:button").click(function() {
-            var country = $(this).val();
-            console.log(country);
+    function selectCountry(countryName) {
+            var country = countryName;
 
             d3.csv(country + ".csv", function(data) {
                 newJSON = buildJSONHierarchy(data, country);
@@ -208,8 +206,7 @@
                     d.children = d._children;
                     d._children = null;
                 }
-            }
-        });
+            };
     }
 
 	</script>
