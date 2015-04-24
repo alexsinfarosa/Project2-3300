@@ -19,10 +19,19 @@
 
 </head>
 <body>
+
 <input type="button" value="England" onclick="selectCountry('England')">
 <input type="button" value="France" onclick="selectCountry('France')">
 <input type="button" value="Italy" onclick="selectCountry('Italy')">
+
+<select id="ddlViewBy" onchange="selectCountry(this.value)">
+  <option value="England">England</option>
+  <option value="France" selected="selected">France</option>
+  <option value="Italy">Italy</option>
+</select>
+
 	<script>
+
     //creating proper json formats
     //rootName will be the name of the country
     function buildJSONHierarchy(csv, rootName){
@@ -86,6 +95,10 @@
     } else if(random == 2) {
         var country = "Italy";
     }
+
+    // dropdown list code
+    var e = document.getElementById("ddlViewBy");
+    var country = e.options[e.selectedIndex].value;
             
     d3.csv(country + ".csv", function(data) {
         newJSON = buildJSONHierarchy(data, country);
