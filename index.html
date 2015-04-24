@@ -102,7 +102,7 @@
     var e = document.getElementById("ddlViewBy");
     var country = e.options[e.selectedIndex].value;
             
-    d3.csv(country + ".csv", function(data) {
+    d3.csv("countries/" + country + ".csv", function(data) {
         newJSON = buildJSONHierarchy(data, country);
         root = newJSON;
         root.x0 = h / 2;
