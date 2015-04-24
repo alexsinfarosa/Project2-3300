@@ -1,8 +1,5 @@
 body {
 	font-family: 'Roboto Condensed', sans-serif;
-	padding: 1rem;
-	width: 100%;
-	margin: 0 auto;
 	background: #22313F;
 	color: #fff;
 }
@@ -15,32 +12,22 @@ h1 {
 }
 
 input[type=button] {
-	width: 150px;
-	height: 30px;
+	width: 100px;
+	height: 100px;
+	border-radius: 100px;
+	margin: 2rem 0;
 	background: transparent;
-	font-size: 1rem;
+	font-size: 2rem;
 	color: #F4D03F;
 	outline: none;
 	box-shadow: none;
 	border: 1px solid #CCC; 
-	border-radius: 7px;
-
 }
-input[type=button]:active{
+input[type=button]:hover{
 	background: #336E7B;
 }
-
-select {
-  display: inline-block;
-  height: 30px;
-  width: 150px;
-  outline: none;
-  font-size: 1rem;
-  color: #F4D03F;
-  border: 1px solid #C8BFC4;
-  border-radius: 4px;
-  box-shadow: inset 1px 1px 2px #ddd8dc;
-  background: transparent;
+input[type=button]:active{
+	scale: 1.5;
 }
 
 .node circle {
@@ -72,4 +59,6 @@ g text {
 .info {
 	fill: #C8F7C5;
 } 
+
+
 

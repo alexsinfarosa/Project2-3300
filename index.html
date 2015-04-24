@@ -8,6 +8,9 @@
 	<!-- Mobile Specific Meta -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
 	<!-- Custom Style Sheet -->
 	<link rel="stylesheet" href="main.css">
 
@@ -19,12 +22,21 @@
 
 </head>
 <body>
+<div class="container-fluid">
+    <div class="row text-center">
+        <div class="col-md-2">
+            <input type="button" value="England" onclick="selectCountry('England')"><br>
+            <input type="button" value="France"  onclick="selectCountry('France')"><br>
+            <input type="button" value="Italy"   onclick="selectCountry('Italy')"><br>
+            <input type="button" value="Spain"   onclick="selectCountry('Spain')"><br>
+            <input type="button" value="Germany" onclick="selectCountry('Germany')"><br>           
+        </div>
+        <div id="graph"class="col-md-10">
+        
+        </div>
+    </div>
+</div>
 
-<input type="button" value="England" onclick="selectCountry('England')">
-<input type="button" value="France"  onclick="selectCountry('France')">
-<input type="button" value="Italy"   onclick="selectCountry('Italy')">
-<input type="button" value="Spain"   onclick="selectCountry('Spain')">
-<input type="button" value="Germany"   onclick="selectCountry('Germany')">
 
 	<script>
 
@@ -63,7 +75,7 @@
     }
 
     var m = [20, 120, 20, 120],
-    w = 1280 - m[1] - m[3],
+    w = 1100 - m[1] - m[3],
     h = 800 - m[0] - m[2],
     i = 0,
     root;
@@ -74,7 +86,7 @@
     var diagonal = d3.svg.diagonal()
         .projection(function(d) { return [d.y, d.x]; });
 
-    var vis = d3.select("body").append("svg:svg")
+    var vis = d3.select("#graph").append("svg:svg")
         .attr("width", w + m[1] + m[3])
         .attr("height", h + m[0] + m[2])
         .append("svg:g")
