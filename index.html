@@ -21,16 +21,10 @@
 <body>
 
 <input type="button" value="England" onclick="selectCountry('England')">
-<input type="button" value="France" onclick="selectCountry('France')">
-<input type="button" value="Italy" onclick="selectCountry('Italy')">
-
-<br />
-
-<select id="ddlViewBy" onchange="selectCountry(this.value)">
-  <option value="England">England</option>
-  <option value="France" selected="selected">France</option>
-  <option value="Italy">Italy</option>
-</select>
+<input type="button" value="France"  onclick="selectCountry('France')">
+<input type="button" value="Italy"   onclick="selectCountry('Italy')">
+<input type="button" value="Spain"   onclick="selectCountry('Spain')">
+<input type="button" value="Germany"   onclick="selectCountry('Germany')">
 
 	<script>
 
@@ -97,11 +91,7 @@
     } else if(random == 2) {
         var country = "Italy";
     }
-
-    // dropdown list code
-    var e = document.getElementById("ddlViewBy");
-    var country = e.options[e.selectedIndex].value;
-            
+  
     d3.csv("countries/" + country + ".csv", function(data) {
         newJSON = buildJSONHierarchy(data, country);
         root = newJSON;
@@ -122,9 +112,10 @@
 
     function selectCountry(countryName) {
             var country = countryName;
+            console.log(country);
 
             // Update graph after clicking button 
-            d3.csv(country + ".csv", function(data) {
+            d3.csv("countries/" + country + ".csv", function(data) {
                 newJSON = buildJSONHierarchy(data, country);
                 root = newJSON;
                 root.x0 = h / 2;
@@ -169,11 +160,12 @@
             if (d.FT != null) {
               var info = g.append("text")
                 .classed("info", true)
-                .attr("x", 125)
+                .attr("x", 140)
                 .attr("y", 4)
                 .text( "Date: " + d.Date )
-                .append("tspan").text("HT: " + d.HT).attr("x", 125).attr("y", 20)
-                .append("tspan").text("FT: " + d.FT).attr("x", 125).attr("y", 36);
+                .append("tspan").text("First Half: " + d.HT).attr("x", 140).attr("y", 20)
+                .append("tspan").text("Score: " + d.FT).attr("x", 140).attr("y", 36);
+
               }
             })
           .on("mouseout", function() {
@@ -202,6 +194,7 @@
           .style("fill", function(d) { return d._children ? "lightsteelblue" : "#CF000F"; });
 
         nodeUpdate.select("text")
+        // .style("fill", function(d) { return d._children ? "lightsteelblue" : "#BF55EC"; })
           .style("fill-opacity", 1);
 
         // Transition exiting nodes to the parent's new position.
@@ -261,7 +254,8 @@
             d.children = d._children;
             d._children = null;
         }
-    } 
+    }
+ 
 
 
 </script>
