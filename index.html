@@ -146,7 +146,25 @@
         var nodeEnter = node.enter().append("svg:g")
           .attr("class", "node")
           .attr("transform", function(d) { return "translate(" + source.y0 + "," + source.x0 + ")"; })
-          .on("click", function(d) { toggle(d); update(d); });
+          .on("click", function(d) { toggle(d); update(d); })
+          .on("mouseover", function(d) {
+            var g = d3.select(this); // The node
+            // The class is used to remove the additional text later
+            // console.log(d.FT == null);
+            if (d.FT != null) {
+              var info = g.append("text")
+                .classed("info", true)
+                .attr("x", 125)
+                .attr("y", 4)
+                .text( "Date: " + d.Date )
+                .append("tspan").text("HT: " + d.HT).attr("x", 125).attr("y", 20)
+                .append("tspan").text("FT: " + d.FT).attr("x", 125).attr("y", 36);
+              }
+            })
+          .on("mouseout", function() {
+            // Remove the info text on mouse out.
+            d3.select(this).select('text.info').remove();
+          });
 
         nodeEnter.append("svg:circle")
           .attr("r", 1e-6)
@@ -156,7 +174,7 @@
           .attr("x", function(d) { return d.children || d._children ? -10 : 10; })
           .attr("dy", ".35em")
           .attr("text-anchor", function(d) { return d.children || d._children ? "end" : "start"; })
-          .text(function(d) { return d.FT + " " + d.name; })
+          .text(function(d) { return d.name; })
           .style("fill-opacity", 1e-6);
 
         // Transition nodes to their new position.
@@ -228,7 +246,8 @@
             d.children = d._children;
             d._children = null;
         }
-    }  
+    } 
+
 
 </script>
 
