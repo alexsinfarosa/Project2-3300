@@ -19,9 +19,9 @@
 
 </head>
 <body>
-<input type="button" value="England" onclick="selectCountry()">
-<input type="button" value="France" onclick="selectCountry()">
-<input type="button" value="Italy" onclick="selectCountry()">
+<input type="button" value="England" onclick="selectCountry('England')">
+<input type="button" value="France" onclick="selectCountry('France')">
+<input type="button" value="Italy" onclick="selectCountry('Italy')">
 	<script>
     //creating proper json formats
     //rootName will be the name of the country
@@ -105,9 +105,8 @@
         update(root);
     });
 
-    function selectCountry() {
-        $("input:button").click(function() {
-            var country = $(this).val();
+    function selectCountry(countryName) {
+            var country = countryName;
 
             // Update graph after clicking button 
             d3.csv(country + ".csv", function(data) {
@@ -128,8 +127,7 @@
                 update(root);
             });
         
-        });
-    }
+        }
 
     function update(source) {
         var duration = d3.event && d3.event.altKey ? 5000 : 500;
