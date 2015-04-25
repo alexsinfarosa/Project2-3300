@@ -2,14 +2,22 @@ body {
 	font-family: 'Roboto Condensed', sans-serif;
 	background: #22313F;
 	color: #fff;
+	font-size: 1.6rem;
 }
 svg {
 	/*border: 1px solid white;*/
 }
 h1 {
-	font-size: 2rem;
+	font-size: 4rem;
 	text-align: center;
+	letter-spacing: 1px;
 }
+h2 {
+	font-size: 1.8rem;
+	text-align: center;
+	letter-spacing: 1px;
+}
+
 
 input[type=button] {
 	width: 100px;

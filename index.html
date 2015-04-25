@@ -27,14 +27,14 @@
 </head>
 <body>
 
-  <h1 style="font-size:250%"> Soccer Data </h1>
+  <h1>European Soccer Teams Data</h1>
 
-<h5 style="padding-left:46px"> View a country's soccer statistics between home teams and away teams for 2013-2014 games. </h5> <br>
+<h2>View a country's soccer statistics between home teams and away teams for 2013-2014 games.</h2>
 
 <div class="container-fluid">
     <div class="row text-center">
         <div class="col-md-2">
-            <p style="font-size:130%"> Select A Country: </p> 
+            <p> Select A Country: </p> 
             <input type="button" value="England" onclick="selectCountry('England')"><br>
             <input type="button" value="France"  onclick="selectCountry('France')"><br>
             <input type="button" value="Italy"   onclick="selectCountry('Italy')"><br>
@@ -216,7 +216,7 @@
           .style("fill", function(d) { return d._children ? "lightsteelblue" : "#CF000F"; });
 
         nodeUpdate.select("text")
-        .style("fill", function(d) { return d._children ? "lightsteelblue" : "#BF55EC"; })
+        // .style("fill", function(d) { return d._children ? "lightsteelblue" : "#BF55EC"; })
           .style("fill-opacity", 1);
 
         // Transition exiting nodes to the parent's new position.
