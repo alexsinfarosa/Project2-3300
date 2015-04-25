@@ -26,9 +26,15 @@
 
 </head>
 <body>
+
+  <h1 style="font-size:250%"> Soccer Data </h1>
+
+<h5 style="padding-left:46px"> View a country's soccer statistics between home teams and away teams for 2013-2014 games. </h5> <br>
+
 <div class="container-fluid">
     <div class="row text-center">
         <div class="col-md-2">
+            <p style="font-size:130%"> Select A Country: </p> 
             <input type="button" value="England" onclick="selectCountry('England')"><br>
             <input type="button" value="France"  onclick="selectCountry('France')"><br>
             <input type="button" value="Italy"   onclick="selectCountry('Italy')"><br>
@@ -128,7 +134,7 @@
 
     function selectCountry(countryName) {
             var country = countryName;
-            console.log(country);
+            // console.log(country);
 
             // Update graph after clicking button 
             d3.csv("countries/" + country + ".csv", function(data) {
@@ -180,7 +186,7 @@
                 .attr("y", 4)
                 .text( "Date: " + d.Date )
                 .append("tspan").text("First Half: " + d.HT).attr("x", 140).attr("y", 20)
-                .append("tspan").text("Score: " + d.FT).attr("x", 140).attr("y", 36);
+                .append("tspan").text("Final Score: " + d.FT).attr("x", 140).attr("y", 36);
 
               }
             })
@@ -271,8 +277,6 @@
             d._children = null;
         }
     }
- 
-
 
 </script>
 
