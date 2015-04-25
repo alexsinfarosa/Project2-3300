@@ -1,5 +1,9 @@
 #CS 3300 - Project 2
 
+Alessandro Sinfarosa (as898)
+David Castillo (dc689)
+Richard Hsu (rh468)
+
 ###Part A
 
 The data describes the European soccer season 2013-14 in Italy, Germany, France, Spain and England of their respective teams. Each team in a season plays twice against every other team participating the league, the first time in their hometown and the second in their opponent’s town.  The dataset provides the dates of the games for the 2013/14 season, the first half and final score of the games.  The number of soccer teams participating the soccer tournament in each of those european countries are 20. The data was obtained from Github: https://github.com/footballcsv. The variables are: Date, Team 1, Team 2, FT, HT, which represent  respectively the date of the game, the name of the home team, the name of the guest team, the score of the first half, and the score of the final game. 
