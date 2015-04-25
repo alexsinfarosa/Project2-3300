@@ -27,7 +27,7 @@
 
   <h1>European Soccer Teams Data</h1>
 
-<h2>View a country's soccer statistics between home teams and away teams for 2013-2014 games.</h2>
+<h2>View statistics for 2013-14 season of European soccer games.</h2>
 
 <div class="container-fluid">
     <div class="row text-center">
@@ -207,13 +207,13 @@
             if (scores != undefined){
               scores = scores.split("-");
               if (scores[0] >= scores[1]){
-                return "#7FFF00";
+                return "#00B16A";
               }
               else{
-                return "#FF0000";
+                return "#F22613";
               }
-            }})
-          .style("fill-opacity", 1e-6);
+            }});
+          // .style("fill-opacity", 1e-6);
 
         // Transition nodes to their new position.
         var nodeUpdate = node.transition()
