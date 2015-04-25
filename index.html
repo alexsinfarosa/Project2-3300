@@ -48,6 +48,9 @@
 
 	<script>
 
+    //statistics
+    var statistics = [];
+
     //creating proper json formats
     //rootName will be the name of the country
     function buildJSONHierarchy(csv, rootName){
@@ -79,6 +82,28 @@
             var team2 = {"name": team2Name, "HT": HT, "FT": FT, "Date": date}
             team1["children"].push(team2);
         }
+
+        //gather statistics
+        var totalGoals = 0;
+        var mostGoals = 0;
+        var mostGoals_against = "";
+        for(var i = 0; i < root["children"].length; i++) {
+          for (var j = 0; j < root["children"][i]["children"].length; j++) {
+            scores = root["children"][i]["children"][j]["FT"].split("-");
+            totalGoals = totalGoals + parseInt(scores[0]);
+            mostGoals = Math.max(mostGoals, scores[0]);
+            if (scores[0] >= mostGoals) {
+              mostGoals_against = root["children"][i]["children"][j]["name"];
+            }
+
+          }
+          statistics.push({"team": root["children"][i], "totalGoals": totalGoals, "mostGoals": mostGoals, "mostGoals_against": mostGoals_against});
+          var totalGoals = 0;
+          var mostGoals = 0;
+          var mostGoals_against = "";
+        }
+
+        //console.log(statistics);
         return root;
     }
 
@@ -130,6 +155,7 @@
         update(root);
     });
 
+
     function selectCountry(countryName) {
             var country = countryName;
             // console.log(country);
@@ -152,7 +178,6 @@
                 root.children.forEach(toggleAll);
                 update(root);
             });
-        
         }
 
     function update(source) {
@@ -172,7 +197,7 @@
         var nodeEnter = node.enter().append("svg:g")
           .attr("class", "node")
           .attr("transform", function(d) { return "translate(" + source.y0 + "," + source.x0 + ")"; })
-          .on("click", function(d) { toggle(d); update(d); })
+          .on("click", function(d) {  toggle(d); update(d);  })
           .on("mouseover", function(d) {
             var g = d3.select(this); // The node
             // The class is used to remove the additional text later
