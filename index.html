@@ -210,7 +210,7 @@
           .style("fill", function(d) { return d._children ? "lightsteelblue" : "#CF000F"; });
 
         nodeUpdate.select("text")
-        // .style("fill", function(d) { return d._children ? "lightsteelblue" : "#BF55EC"; })
+        .style("fill", function(d) { return d._children ? "lightsteelblue" : "#BF55EC"; })
           .style("fill-opacity", 1);
 
         // Transition exiting nodes to the parent's new position.
