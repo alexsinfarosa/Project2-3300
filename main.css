@@ -65,6 +65,22 @@ g text {
 
 .info {
 	fill: #C8F7C5;
+}
+.even {
+	background: #F4D03F;
+	padding: 3px 5px;
+	border-radius: 10px;
+} 
+.lost {
+	background: #F22613;
+	padding: 3px 5px;
+	border-radius: 10px;
+
+} 
+.won {
+	background: #00B16A;
+	padding: 3px 5px;
+	border-radius: 10px;
 } 
 
 
