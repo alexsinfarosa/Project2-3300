@@ -202,6 +202,17 @@
           .attr("dy", ".35em")
           .attr("text-anchor", function(d) { return d.children || d._children ? "end" : "start"; })
           .text(function(d) { return d.name; })
+          .attr("stroke", function(d){
+            scores = d.FT;
+            if (scores != undefined){
+              scores = scores.split("-");
+              if (scores[0] >= scores[1]){
+                return "#7FFF00";
+              }
+              else{
+                return "#FF0000";
+              }
+            }})
           .style("fill-opacity", 1e-6);
 
         // Transition nodes to their new position.
